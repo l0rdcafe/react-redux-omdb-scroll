@@ -19,11 +19,7 @@ class App extends Component {
     return (
       <Fragment>
         <Nav handleChange={this.handleChange} fetchMovies={this.fetchMovies} />
-        {loading && (
-          <p style={{ fontWeight: "700", textAlign: "center", marginTop: movies.length === 0 ? "100px" : "0" }}>
-            Loading...
-          </p>
-        )}
+        {loading && <p style={{ fontWeight: "700", textAlign: "center", marginTop: "100px" }}>Loading...</p>}
         {!loading && !movies.error && <MovieList movies={movies} />}
         {movies.error && (
           <p style={{ fontWeight: "700", color: "red", textAlign: "center", marginTop: "100px" }}>
