@@ -5,7 +5,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import reducer from "./reducers";
 import "./index.css";
-import Root from "./root";
+import Root from "./components/root";
 
 const store = createStore(reducer, applyMiddleware(logger, thunk));
 

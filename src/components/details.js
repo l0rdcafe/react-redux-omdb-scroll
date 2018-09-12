@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import Nav from "./nav";
+import Loading from "./loader";
 import MovieDetails from "./movie-details";
-import { setQuery } from "./actions/query";
-import { fetchMovies } from "./actions/movies";
-import { fetchDetails } from "./actions/details";
+import { setQuery } from "../actions/query";
+import { fetchMovies } from "../actions/movies";
+import { fetchDetails } from "../actions/details";
 
 class Details extends React.Component {
   componentDidMount() {
@@ -29,10 +30,10 @@ class Details extends React.Component {
     return (
       <Fragment>
         <Nav handleChange={this.handleChange} fetchMovies={this.fetchMovies} />
-        <Link style={{ position: "absolute", top: "130px", left: "50px", color: "black" }} to="/">
+        <Link style={{ position: "absolute", top: "130px", left: "50px", color: "black" }} href="/" to="/">
           <FaArrowLeft />
         </Link>
-        {loading && <p style={{ fontWeight: "700", textAlign: "center", marginTop: "100px" }}>Loading...</p>}
+        {loading && <Loading />}
         {!loading &&
           !details.error && (
             <MovieDetails

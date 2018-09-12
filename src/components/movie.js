@@ -7,10 +7,10 @@ const Movie = ({ title, year, poster, id }) => (
   <Card>
     <Row>
       <Column flex={1}>
-        <Image width={128} src={poster} />
+        <Image width={128} src={poster} alt={`Movie poster for ${title}`} />
       </Column>
       <Column flex={1}>
-        <Link to={`/${id}`}>
+        <Link href={`/${id}`} to={`/${id}`}>
           <Subhead style={{ display: "inline-block" }} color="black">
             {title}
           </Subhead>

@@ -9,7 +9,7 @@ const Nav = ({ fetchMovies, handleChange }) => (
       OMDB Scroll
     </Caps>
     <Input onChange={handleChange} m={2} bg="white" color="black" placeholder="Search a movie" width={[1 / 2, 1 / 5]} />
-    <Link to="/">
+    <Link href="/" to="/">
       <ButtonCircle style={{ cursor: "pointer" }} color="black" bg="white" onClick={fetchMovies}>
         Search
       </ButtonCircle>

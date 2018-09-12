@@ -5,11 +5,16 @@ import PropTypes from "prop-types";
 const MovieDetails = ({ title, year, director, actors, genre, plot, poster, writer, rating, votes, runtime }) => (
   <Container mt={6} style={{ paddingRight: "25%" }}>
     <Drawer p={4} open side="right" bg="black">
-      <Image src={poster} />
+      <Image src={poster} alt={`Movie poster for ${title}`} />
       <Subhead mt={4} style={{ textAlign: "center" }}>
         Starring:
       </Subhead>
-      {actors && actors.split(", ").map(actor => <p style={{ textAlign: "center" }}>{actor}</p>)}
+      {actors &&
+        actors.split(", ").map(actor => (
+          <p key={actor} style={{ textAlign: "center" }}>
+            {actor}
+          </p>
+        ))}
     </Drawer>
     <Heading>
       {title} <Small>{year}</Small>{" "}

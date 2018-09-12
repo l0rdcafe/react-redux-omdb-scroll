@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import App from "./App";
+import App from "./app";
 import Details from "./details";
 
 const Root = ({ store }) => (

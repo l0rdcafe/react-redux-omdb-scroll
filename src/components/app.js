@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { setQuery } from "./actions/query";
+import { setQuery } from "../actions/query";
 import MovieList from "./movie-list";
 import Nav from "./nav";
-import { fetchMovies } from "./actions/movies";
+import Loading from "./loader";
+import { fetchMovies } from "../actions/movies";
 
 class App extends Component {
   fetchMovies = () => {
@@ -19,7 +20,7 @@ class App extends Component {
     return (
       <Fragment>
         <Nav handleChange={this.handleChange} fetchMovies={this.fetchMovies} />
-        {loading && <p style={{ fontWeight: "700", textAlign: "center", marginTop: "100px" }}>Loading...</p>}
+        {loading && <Loading />}
         {!loading && !movies.error && <MovieList movies={movies} />}
         {movies.error && (
           <p style={{ fontWeight: "700", color: "red", textAlign: "center", marginTop: "100px" }}>
@@ -44,7 +45,7 @@ App.propTypes = {
   state: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     query: PropTypes.string.isRequired,
-    page: PropTypes.number.isRequired,
+    page: PropTypes.number,
     movies: PropTypes.arrayOf(PropTypes.object).isRequired
   }).isRequired
 };
